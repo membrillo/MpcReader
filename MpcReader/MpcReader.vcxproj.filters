@@ -30,18 +30,24 @@
     <ClInclude Include="mpcMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MpcReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MpcReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mpc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mpcMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ejemplo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MpcReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

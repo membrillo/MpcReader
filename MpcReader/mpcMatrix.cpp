@@ -170,7 +170,7 @@ void mpcMatrix::setColumn(std::vector <double> columnsVector, int columnIndex){
 	if (columnIndex>cols){
 		resize(rows, columnIndex);
 	}
-	std::cout << columnsVector.size() << " || " << rows << std::endl;
+	
 	if (columnsVector.size() > rows){
 		resize(columnsVector.size(), cols);
 	}
