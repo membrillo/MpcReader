@@ -15,8 +15,13 @@ public:
 	std::vector<std::vector<double> > array2D;
 	void resize(int rows, int cols);
 	void addRowFromVector(std::vector <double> rowVector);
+	void addColumnFromVector(std::vector <double> colVector, double factor);
+
 	void setColumn(std::vector <double> columnVector, int columnIndex);
+	void setColumn(std::vector <double> columnsVector, int columnIndex, double factor);
+
 	void setRow(std::vector <double> rowVector, int rowIndex);
+	 // lo multiplica por ese factor
 
 	std::vector <double> getRow(int rowIndex);
 	std::vector <double> getCol(int columnIndex);

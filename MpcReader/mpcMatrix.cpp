@@ -151,6 +151,8 @@ std::vector <double> mpcMatrix::getRow(int rowIndex){
 
 
 
+
+
 void mpcMatrix::setRow(std::vector <double> rowVector, int rowIndex){
 	if (rowIndex>rows){
 		resize(rowIndex, rows);
@@ -163,6 +165,29 @@ void mpcMatrix::setRow(std::vector <double> rowVector, int rowIndex){
 	for (int i = 0; i < rowVector.size(); i++){
 		array2D[i][rowIndex - 1] = rowVector.at(i);
 	}
+}
+
+void mpcMatrix::setColumn(std::vector <double> columnsVector, int columnIndex, double factor){
+	if (columnIndex>cols){
+		resize(rows, columnIndex);
+	}
+
+	if (columnsVector.size() > rows){
+		resize(columnsVector.size(), cols);
+	}
+
+	for (int i = 0; i < columnsVector.size(); i++){
+		array2D[columnIndex - 1][i] = columnsVector.at(i)*factor;
+	}
+}
+
+void mpcMatrix::addColumnFromVector(std::vector <double> columnsVector, double factor){
+	resize(rows, cols + 1);
+	std::vector <double> aux;
+	for (int i = 0; i < columnsVector.size(); i++){
+		aux.push_back(columnsVector.at(i)*factor);
+	}
+	setColumn(aux, cols);
 }
 
 void mpcMatrix::setColumn(std::vector <double> columnsVector, int columnIndex){

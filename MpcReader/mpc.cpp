@@ -14,6 +14,20 @@ mpc::mpc(){
 	
 }
 
+void mpc::createDemandsMatrix(){
+	addNewMatrix("Demands");
+	periods = getMatrixVariable("factor").rows;
+	subperiods = getMatrixVariable("factor").cols;
+
+	for (int i = 0; i < getMatrixVariable("factor").rows; i++){
+		for (int j = 0; j < getMatrixVariable("factor").cols; j++){
+			getMatrixVariable("Demands").addColumnFromVector(getMatrixVariable("bus").getCol(3), getMatrixVariable("factor").array2D[j][i]);
+		}
+	}
+	
+
+}
+
 void mpc::writeMatrix(mpcMatrix matrixToWrite){
 	std::ofstream myfile;
 	std::string extension = ".jpmatrix";

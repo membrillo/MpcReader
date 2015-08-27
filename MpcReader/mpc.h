@@ -24,6 +24,12 @@ public:
 	void writeMatrix(std::string name);
 	void writeAllMatrix();
 	void printVariablesStored();
+	int periods;
+	int subperiods;
+
+	void createDemandsMatrix();
+
+
 	void addVariable(std::string newName, double value);
 	void clearMemory();
 	double& getVariable(std::string nameToSearch);

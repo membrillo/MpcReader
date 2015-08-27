@@ -14,21 +14,30 @@
 
 
 int main(int argc, char* argv[]) {
-	MpcReader reader("case6ww_GCEP.m"); // esto carga todos los datos de las matrices tal cual
+	MpcReader reader("case2.m"); // esto carga todos los datos de las matrices tal cual
 	reader.read(); // se leen
 	
 	mpc mpc; // creo un objeto a mpc
 	mpc = reader.getMpc(); // lo inicializo dandole que sea igual al que se obtuvo de leer el archivo
 
 
-	mpc.printVariablesStored(); // se imprimen todas las variables en ese mpc
+	
 
 	// Despues de cargar los datos los tengo que cortar/ordenar/modificar para que queden en el formato deseado
+
+	
 	mpcMatrix aux;
+	
+
+	mpc.printVariablesStored(); // se imprimen todas las variables en ese mpc
+
+
+	/*
+
 	aux.setColumn(mpc.getMatrixVariable("branch").getCol(1), 1);
 	aux.setColumn(mpc.getMatrixVariable("branch").getCol(2), 2);
 	aux.setColumn(mpc.getMatrixVariable("branch").getCol(3), 3);
-
+	// 4° columna de line
 
 	mpc.addNewMatrix("Line");
 	mpc.getMatrixVariable("Line") = (aux);
@@ -37,6 +46,8 @@ int main(int argc, char* argv[]) {
 	aux.clearMatrix();
 	aux.setColumn(mpc.getMatrixVariable("bus").getCol(1), 1);
 	aux.setColumn(mpc.getMatrixVariable("bus").getCol(2), 2);
+	// 3° columna de bus
+	// 4° columna de bus
 	aux.setColumn(mpc.getMatrixVariable("bus").getCol(10), 5);
 
 	mpc.getMatrixVariable("bus") = aux;
@@ -46,6 +57,7 @@ int main(int argc, char* argv[]) {
 	aux.clearMatrix();
 	aux.setColumn(mpc.getMatrixVariable("gen").getCol(1), 1);
 	aux.setColumn(mpc.getMatrixVariable("gen").getCol(2), 2);
+	// 3° columna de gen
 	aux.setColumn(mpc.getMatrixVariable("gen").getCol(9), 4);
 	aux.setColumn(mpc.getMatrixVariable("gen").getCol(10), 5);
 	aux.setColumn(mpc.getMatrixVariable("gen").getCol(11), 6);
@@ -54,11 +66,13 @@ int main(int argc, char* argv[]) {
 	mpc.getMatrixVariable("gen").changeName("Gen"); // Le cambio el nombre solo para ponerle la mayuscula al principio
 	mpc.writeMatrix("Gen");
 
+	
+
 	// si se hace algo despues de esto conviene liberar la memoria ya que no se usaran mas estos objetos
 
 	mpc.clearMemory();
 
-
+	*/
 
 
 }

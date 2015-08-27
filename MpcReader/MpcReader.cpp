@@ -59,6 +59,12 @@ void MpcReader::read(){
 
 
 							temporalRow.push_back(std::stod(line.substr(startPosition, i - startPosition)));
+							if (auxLetter.compare(";") == 0){
+								mpc.getMatrixVariable(lastMatrixName).addRowFromVector(temporalRow);
+								//std::cout << temporalRow.size();
+								temporalRow.clear();
+								break;
+							}
 							//std::cout << "[" << temporalRow.at(temporalRow.size() - 1) << "]";
 							startPosition = NULL;
 						}
@@ -173,9 +179,12 @@ void MpcReader::read(){
 
 				}
 
+				
+
 
 			}
 			myfile.close();
+			mpc.createDemandsMatrix();
 		}
 		else std::cout << "Unable to open file";
 
